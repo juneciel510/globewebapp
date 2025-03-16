@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.vs/globewebapp/CopilotIndices/17.13.433.20974
+/.vs
