@@ -6,14 +6,15 @@ const subtitleStyle = {
     color: "coral",
 };
 
-const Banner = ({ children }) => {
+const Banner = ( props) => {
+    console.log(props);
     return (
         <header className="row mb-4">
             <div className="col-5">
-                <img src="./GloboLogo.png" alt="logo" className={styles.logo } />
+                <img src="./GloboLogo.png" alt="logo" className={styles.logo} />
             </div>
-            <div className="col-7 mt-5" style={subtitleStyle }>
-                Providing houses all over the world
+            <div className="col-7 mt-5" style={subtitleStyle}>
+                {props.headerText}
             </div>
         </header>
     );
