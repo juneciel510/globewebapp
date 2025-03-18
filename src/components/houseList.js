@@ -17,7 +17,7 @@ import HouseRow from "./houseRow";
 //  },
 //];
 
-const HouseList = () => {
+const HouseList = ({ selectHouse }) => {
     const [houses, setHouses] = useState([]);
     useEffect(() =>
     {
@@ -60,7 +60,7 @@ const HouseList = () => {
         </thead>
         <tbody>
           {houses.map((h) => (
-            <HouseRow key={h.id} house={h} />
+              <HouseRow key={h.id} house={h} selectHouse={ selectHouse} />
           ))}
         </tbody>
       </table>
