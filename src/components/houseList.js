@@ -1,35 +1,13 @@
-import React, { useState, useEffect } from "react";
 import HouseRow from "./houseRow";
+import useHouses from "../hooks/useHouses";
+import LoadingIndicator from "./loadingIndicator";
 
-
-//const houseArray = [
-//  {
-//    id: 1,
-//    address: "12 Valley of Kings, Geneva",
-//    country: "Switzerland",
-//    price: 900000,
-//  },
-//  {
-//    id: 2,
-//    address: "89 Road of Forks, Bern",
-//    country: "Switzerland",
-//    price: 500000,
-//  },
-//];
 
 const HouseList = ({ selectHouse }) => {
-    const [houses, setHouses] = useState([]);
-    useEffect(() =>
-    {
-        const fecthHouses=async () =>{
-            const response = await fetch("/api/houses");
-            const houses = await response.json();
-            setHouses(houses);
-
-        }
-        fecthHouses();
-    }, []
-    );
+    const { houses, setHouses, loadingState } = useHouses();
+    if (loadingState !== "loaded") {
+        return <LoadingIndicator loadingState={loadingState} />;
+    }
 
   const addHouse = () => {
     setHouses([
